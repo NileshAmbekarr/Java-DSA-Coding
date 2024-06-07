@@ -72,7 +72,7 @@ public class Classroom {
         h.add(4);
         h.add(1);
         h.add(2);
-
+        h.add(6);
         while(!h.isEmpty()){
             System.out.println(h.peek());
             h.remove();
