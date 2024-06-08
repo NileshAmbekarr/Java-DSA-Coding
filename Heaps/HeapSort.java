@@ -45,8 +45,21 @@ public class HeapSort {
         int[] arr = {1, 4, 3,2, 5};
 
         heapSort(arr);
-        for(int i = 0; i < arr.length; i++){
-            System.out.print(arr[i] + " ");
+        for (int j : arr) {
+            System.out.print(j + " ");
         }
     }
+
+    // for ascending order sorting => build maxHeap
+    // for descending order sorting => build minHeap
+
+    // step 1 >> build maxHeap or minHeap
+    // step 2 >> swap the first element with the last element and reconstruct the Heap
+
+    // how 'heapify' function works ?
+    // ===>>> 1. An array , the root , size are passed to the function
+    //        2. first find the roots left right elements.
+    //        3. find the Max element or min element among those three
+    //        4. if found , swap with the root
+    //        5. call heapify again for the maxIdx
 }
