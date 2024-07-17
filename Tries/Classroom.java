@@ -7,7 +7,7 @@ public class Classroom {
         Node children[]= new Node[26];
         boolean eow = false ; // end of word
 
-        Node(){
+        public Node(){
             Arrays.fill(children, null);  // instead of using for loop , we performed the same action by using this method
         }
     }
@@ -32,6 +32,18 @@ public class Classroom {
             curr = curr.children[idx];
         }
         return curr.eow ;
+    }
+    public static boolean breakString(String key){
+        if(key.length() == 0){
+            return true;
+        }
+        for (int i = 1; i < key.length(); i++){
+            if(search(key.substring(0, i)) &&
+                breakString(key.substring(i))){
+                return true;
+            };
+        }
+        return false;
     }
     public static void main(String[] args) {
         String[] words = {"the", "there", "thee", "a", "any", "their", "amo"};
