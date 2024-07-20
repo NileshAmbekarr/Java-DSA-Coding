@@ -54,7 +54,7 @@ public class Classroom {
 
     }
 
-    public static void bfs(ArrayList<Edge>[] graph){
+    public static void bfs(ArrayList<Edge>[] graph){ // O(V+E)
         Queue<Integer> q = new LinkedList<>();
         boolean[] vis = new boolean[graph.length];
         q.add(0); // starting point / vertex
@@ -71,6 +71,32 @@ public class Classroom {
             }
         }
     }
+
+    public static void dfs(ArrayList<Edge>[] graph , int curr, boolean[] vis){
+        // visit current element
+        System.out.print(curr + " ");
+        vis[curr] = true;
+
+        for (int i = 0; i < graph[curr].size(); i++){
+            Edge e = graph[curr].get(i);
+            if(!vis[e.dest]){
+                dfs(graph, e.dest, vis);
+            }
+        }
+    }
+    public static boolean hasPath(ArrayList<Edge>[] graph, int src , int dest , boolean vis[]){
+        if(src == dest){
+            return true;
+        }
+        vis[src] = true;
+        for (int i = 0; i < graph[src].size(); i++){
+            Edge e = graph[src].get(i);
+            if (!vis[e.dest] && hasPath(graph, e.dest, dest, vis)){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         /*
          *     1 ---- 3
@@ -84,5 +110,9 @@ public class Classroom {
         ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph);
         bfs(graph);
+        System.out.println();
+        dfs(graph, 0, new boolean[V]);
+        System.out.println();
+        System.out.println(hasPath(graph, 0, 8, new boolean[V]));
     }
 }
