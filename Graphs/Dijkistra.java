@@ -1,6 +1,7 @@
 package Graphs;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class Dijkistra {
     public static class Edge {
@@ -34,8 +35,39 @@ public class Dijkistra {
 
     }
 
+    public static class Pair implements Comparable<Pair> {
+        int n; // Node
+        int dist; // Dist from source to Node
+
+        public Pair(int n, int dist){
+            this.n = n;
+            this.dist = dist;
+        }
+
+        @Override
+        public int compareTo(Pair p2){
+            return this.dist - p2.dist;
+        }
+    }
+    public static void dijkstra(ArrayList<Edge>[] graph, int src){
+        int[] dist = new int[graph.length];
+        for (int i= 0; i < graph.length; i++){
+            dist[i] = Integer.MAX_VALUE;
+        }
+
+        boolean[] vis = new boolean[graph.length];
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+        pq.add(new Pair(src, 0));
+
+        while(!pq.isEmpty()){
+            Pair p = pq.remove();
+            
+        }
+    }
+
     public static void main(String[] args) {
         int V = 6;
         ArrayList<Edge>[] graph = new ArrayList[V];
+        int src = 0;
     }
 }
