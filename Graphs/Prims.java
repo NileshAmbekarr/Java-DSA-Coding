@@ -73,6 +73,7 @@ public class Prims {
         System.out.println(finalCost);
 
     }
+
     public static void main(String[] args) {
         int V = 4;
         ArrayList<Edge>[] graph = new ArrayList[V];

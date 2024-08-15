@@ -52,7 +52,9 @@ public class Dijkistra {
     public static void dijkstra(ArrayList<Edge>[] graph, int src){
         int[] dist = new int[graph.length];
         for (int i= 0; i < graph.length; i++){
-            dist[i] = Integer.MAX_VALUE;
+           if (i != src){
+               dist[i] = Integer.MAX_VALUE;
+           }
         }
 
         boolean[] vis = new boolean[graph.length];
@@ -60,8 +62,32 @@ public class Dijkistra {
         pq.add(new Pair(src, 0));
 
         while(!pq.isEmpty()){
-            Pair p = pq.remove();
-            
+            Pair curr = pq.remove();
+            if (!vis[curr.n]){
+                vis[curr.n] = true;
+
+                //neighbours add to the queue
+                for (int i = 0; i < graph[curr.n].size(); i++){
+                    Edge e = graph[curr.n].get(i);
+
+                    int u = e.src;
+                    int v = e.dest;
+                    int wt = e.w; //weight
+
+                    // relaxation step
+                    if (dist[u]+wt < dist[v]){
+                        dist[v] = dist[u]+wt;
+
+                        // push new pair to PQueue
+                        pq.add(new Pair(v, dist[v]));
+                    }
+                }
+            }
+        }
+
+        // print all the src to vertices shortest distances
+        for (int j : dist) {
+            System.out.print(j + " ");
         }
     }
 
@@ -69,5 +95,7 @@ public class Dijkistra {
         int V = 6;
         ArrayList<Edge>[] graph = new ArrayList[V];
         int src = 0;
+        createGraph(graph);
+        dijkstra(graph, src);
     }
 }
