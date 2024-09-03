@@ -204,6 +204,7 @@ public class BST {
         root2.left = new Node (3);
         root2.right = new Node (12);
 
+        Node root3 = new Node(34);
         Node root = mergeBST(root1, root2);
         inorder(root);
         preorder(root);
