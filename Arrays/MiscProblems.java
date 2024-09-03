@@ -14,7 +14,7 @@ public class MiscProblems {
 
 
     }
-    static void Printarray(int[] arr){
+    static void PrintArray(int[] arr){
         for (int i = 0 ; i < arr.length ; i++){
             System.out.print(arr[i] + "  ");
         }
@@ -80,14 +80,14 @@ public class MiscProblems {
         System.out.print("enter number if rotations ");
         int k = sc.nextInt();
         System.out.print("Original Array :");
-        Printarray(arr);
+        PrintArray(arr);
         System.out.print("Array After Rotation :");
  //       int[] ans = RotateArray(arr, k );
         rotateInplace( arr , k );
-        Printarray(arr );
+        PrintArray(arr );
 //        InplaceRevArray(arr);
 
-        Printarray(arr);
+        PrintArray(arr);
        // swap(a,b);
        // swapWithoutTemp( a, b );
     }
