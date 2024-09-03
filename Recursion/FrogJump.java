@@ -11,7 +11,7 @@ public class FrogJump {
         return Math.min(opt1, opt2);
     }
     public static void main(String[] args) {
-        int[] h = {10, 30, 40, 20, 20, 30};
-        System.out.println(bestOpt(h, h.length, 0));
+        int[] steps = {10, 30, 40, 20, 20, 30};
+        System.out.println(bestOpt(steps, steps.length, 0));
     }
 }

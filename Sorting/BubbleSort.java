@@ -17,10 +17,12 @@ public class BubbleSort {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
-                    flag = true;
+                    flag  = true;
                 }
             }
-            if (!flag) break; // Flag for checking the array is sorted or not After every iteration
+            if (!flag) {
+                break; // Flag for checking the array is sorted or not After every iteration
+            }
         }
         PrintArray(arr);
     }
